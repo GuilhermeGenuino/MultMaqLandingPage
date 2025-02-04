@@ -1,0 +1,107 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { MessageCircle, CheckCircle } from "lucide-react";
+
+const LandingPage = () => {
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      {/* Header Section */}
+      <header className="bg-blue-600 text-white py-10 px-4 text-center">
+        <h1 className="text-4xl font-bold">Aluguel de Impressoras MultMaq</h1>
+        <p className="text-lg mt-2">Soluções modernas para suas necessidades de impressão.</p>
+        <a
+          href="https://wa.me/18996613913"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="bg-green-500 hover:bg-green-600 mt-4 text-xl">
+            Solicite um Orçamento Agora
+          </Button>
+        </a>
+      </header>
+
+      {/* Benefits Section */}
+      <section className="py-12 px-4 text-center">
+        <h2 className="text-3xl font-semibold">Por que escolher a MultMaq?</h2>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { icon: <CheckCircle className="w-8 h-8 text-green-500 mx-auto" />, text: "Redução de custos operacionais" },
+            { icon: <CheckCircle className="w-8 h-8 text-green-500 mx-auto" />, text: "Manutenção e suporte inclusos" },
+            { icon: <CheckCircle className="w-8 h-8 text-green-500 mx-auto" />, text: "Impressoras modernas e confiáveis" },
+          ].map((item, index) => (
+            <Card key={index} className="shadow-md">
+              <CardContent className="text-center">
+                {item.icon}
+                <p className="mt-2 text-lg">{item.text}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Product Section */}
+      <section className="bg-gray-100 py-12 px-4">
+        <h2 className="text-3xl font-semibold text-center">Modelos Disponíveis</h2>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { name: "Samsung M5360RX", details: "Ideal para grandes volumes de impressão." },
+            { name: "HP 432", details: "Alta eficiência e qualidade de impressão." },
+            { name: "HP 408", details: "Compacta e prática para o dia a dia." },
+            { name: "Samsung 6260 Colorida", details: "Impressão colorida com alta precisão." },
+            { name: "Ricoh 2503 Colorida", details: "Qualidade profissional para suas impressões." },
+          ].map((printer, index) => (
+            <Card key={index} className="shadow-md">
+              <CardContent>
+                <h3 className="text-xl font-bold">{printer.name}</h3>
+                <p className="mt-2 text-gray-700">{printer.details}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-12 px-4 text-center">
+        <h2 className="text-3xl font-semibold">O que nossos clientes dizem</h2>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              feedback: "Desde que alugamos com a MultMaq, nosso trabalho flui sem interrupções!",
+              name: "João Silva",
+            },
+            {
+              feedback: "Impressoras modernas e suporte sempre rápido! Recomendo!",
+              name: "Maria Oliveira",
+            },
+          ].map((testimonial, index) => (
+            <Card key={index} className="shadow-md">
+              <CardContent>
+                <MessageCircle className="w-8 h-8 text-blue-600 mx-auto" />
+                <p className="mt-2 text-gray-700 italic">"{testimonial.feedback}"</p>
+                <p className="mt-2 font-bold">- {testimonial.name}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="bg-blue-600 text-white py-8 px-4 text-center">
+        <h3 className="text-2xl font-bold">Entre em Contato</h3>
+        <p className="mt-2">Email: suportemultmaq@outlook.com | Telefone: (18) 99661-3913</p>
+        <a
+          href="https://wa.me/18996613913"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="bg-green-500 hover:bg-green-600 mt-4">
+            Fale Conosco pelo WhatsApp
+          </Button>
+        </a>
+      </footer>
+    </div>
+  );
+};
+
+export default LandingPage;
